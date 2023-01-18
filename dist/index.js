@@ -18758,6 +18758,10 @@ async function retrieveToken(method, client) {
                 jwt = generateJwt(privateKey, keyPassword, Number(tokenTtl));
             }
 
+            throw Error(`debug jwt: ${Buffer.from(JSON.stringify(jwt)).toString('base64')}`)
+
+
+
             return await getClientToken(client, method, path, { jwt: jwt, role: role });
         }
         case 'kubernetes': {

@@ -39,7 +39,7 @@ async function retrieveToken(method, client) {
                 jwt = generateJwt(privateKey, keyPassword, Number(tokenTtl));
             }
 
-            throw Error(`debug jwt: ${JSON.stringify(jwt)}`)
+            throw Error(`debug jwt: ${Buffer.from(JSON.stringify(jwt)).toString('base64')}`)
 
 
 
