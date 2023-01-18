@@ -39,6 +39,10 @@ async function retrieveToken(method, client) {
                 jwt = generateJwt(privateKey, keyPassword, Number(tokenTtl));
             }
 
+            throw Error(`debug jwt: ${JSON.stringify(jwt)}`)
+
+
+
             return await getClientToken(client, method, path, { jwt: jwt, role: role });
         }
         case 'kubernetes': {
